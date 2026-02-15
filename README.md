@@ -1,23 +1,31 @@
-# Roblox-Group-Finder
-A tool to help you find ownerless roblox groups :)
+# Roblox Group Finder
 
+Simple Python script that scans a Roblox group ID range and sends matching ownerless groups to a Discord webhook.
 
-- It's really easy, all you need is a discord webhook :)
+## What it checks
+A group is reported only when all of these are true:
+- Group exists
+- Group is not locked
+- Public entry is allowed
+- Group has no owner
 
+## Setup
+1. Install dependencies:
+   ```bash
+   pip install requests dhooks
+   ```
+   `dhooks` is optional; if missing, webhook messages are sent with plain `requests`.
 
-- It will not send locked groups so don't worry LOLLL.
+2. Run:
+   ```bash
+   python main.py
+   ```
 
+3. Provide:
+   - Discord webhook URL
+   - Number of worker threads
+   - Group ID range (for example `20243-345354`)
 
-- On Line 13 Of Main.py Change That To The Range Of Groups You Want To Scan. *(Ex: 20243-345354)*
-
-
-- If You Want To Run It On Replit, Just Fork This :)
-
-https://replit.com/@AleksGroupFinder/AleksGroupFinder
-
-
-
-- Discord Server For Support : https://discord.gg/C6pxTdVetN
-
-
-![image](https://user-images.githubusercontent.com/71937946/126581208-a7f5a013-7869-4b28-8ba6-c81f1d9e5405.png)
+## Notes
+- Higher thread counts can cause rate limiting.
+- Stop with `Ctrl+C`.
